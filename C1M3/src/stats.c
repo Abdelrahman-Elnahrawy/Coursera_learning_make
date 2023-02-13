@@ -32,14 +32,15 @@ int main() {
  ************************************************************************************************/
 
 void print_array(int * array,int size){
-
+#ifdef DVERBOSE
 	for (int i=0 ;i<size ; i++){ 
-	printf("%d",array[i]);
+	PRINTF("%d",array[i]);
 	if (i<size -1)
-	printf(" , ");
-else printf("}");
+	PRINTF(" , ");
+else PRINTF("}");
 	}
-	printf("\n");
+	PRINTF("\n");
+#endif
 }
 
 
@@ -97,7 +98,9 @@ int find_median(int * array,int size){
 
 void print_statistics(int * array,int size){
 print_array(array,size);
-	printf("The mean is : %d , the median is: %d , the maximum is : %d , the minimuim is : %d",find_mean(array,size),find_median(array,size),	find_maximum( array,size), find_minimum(array, size));
+#ifdef DVERBOSE
+	PRINTF("The mean is : %d , the median is: %d , the maximum is : %d , the minimuim is : %d",find_mean(array,size),find_median(array,size),	find_maximum( array,size), find_minimum(array, size));
+#endif
 }
 
 
