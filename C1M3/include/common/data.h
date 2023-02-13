@@ -1,93 +1,81 @@
-/******************************************************************************
- * Copyright (C) 2017 by Alex Fosdick - University of Colorado
- *
- * Redistribution, modification or use of this software in source or binary
- * forms is permitted as long as the files maintain this copyright. Users are 
- * permitted to modify this and use it to learn about the field of embedded
- * software. Alex Fosdick and the University of Colorado are not liable for any
- * misuse of this material. 
- *
- *****************************************************************************/
-/**
- * @file memory.h
- * @brief Abstraction of memory read and write operations
- *
- * This header file provides an abstraction of reading and
- * writing to memory via function calls. 
- *
- * @author Alex Fosdick
- * @date April 1 2017
- *
- */
-#ifndef __MEMORY_H__
-#define __MEMORY_H__
+/*__________________File:data.h_____________________________________________________
+                                      ___           ___           ___
+ Author: Abdelrahman Selim           /\  \         /\  \         /\  \
+                                    /::\  \       /::\  \       /::\  \
+Created on:13 feb 2023             /:/\:\  \     /:/\:\  \     /:/\:\  \
+                                  /::\ \:\  \   _\:\ \:\  \   /::\ \:\  \
+ Version:01                      /:/\:\ \:\__\ /\ \:\ \:\__\ /:/\:\ \:\__\
+                                 \/__\:\/:/  / \:\ \:\ \/__/ \/__\:\/:/  /
+                                      \::/  /   \:\ \:\__\        \::/  /
+                                      /:/  /     \:\/:/  /        /:/  /
+ Brief :memory manipulation task     /:/  /       \::/  /        /:/  /
+                                     \/__/         \/__/         \/__/
+ _________________________________________________________________________________________*/
 
-/**
- * @brief Sets a value of a data array 
- *
- * Given a pointer to a char data set, this will set a provided
- * index into that data set to the value provided.
- *
- * @param ptr Pointer to data array
- * @param index Index into pointer array to set value
- * @param value value to write the the locaiton
- *
- * @return void.
- */
-void set_value(char * ptr, unsigned int index, char value);
+/****************************data.h****************************************
+# Copyright (C) 2023 by Abdelrahman Selim - University of Colorado intro to embedded system course
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING 
+# BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
+# NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
+# DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+#
+*******************************data.h***************************************/
 
-/**
- * @brief Clear a value of a data array 
- *
- * Given a pointer to a char data set, this will clear a provided
- * index into that data set to the value zero.
- *
- * @param ptr Pointer to data array
- * @param index Index into pointer array to set value
- *
- * @return void.
- */
-void clear_value(char * ptr, unsigned int index);
+#ifndef DATA_H 
+#define DATA_H
+#include<stdint.h>
+#include<stdlib.h>
+#include<stddef.h>
+#include<math.h>
 
-/**
- * @brief Returns a value of a data array 
- *
- * Given a pointer to a char data set, this will read the provided
- * index into that data set and return the value.
- *
- * @param ptr Pointer to data array
- * @param index Index into pointer array to set value
- *
- * @return Value to be read.
- */
-char get_value(char * ptr, unsigned int index);
+#ifndef false
+#define false 0
+#endif
 
-/**
- * @brief Sets data array elements to a value
- *
- * Given a pointer to a char data set, this will set a number of elements
- * from a provided data array to the given value. The length is determined
- * by the provided size parameter.
- *
- * @param ptr Pointer to data array
- * @param value value to write the the locaiton
- * @param size Number of elements to set to value
- *
- * @return void.
- */
-void set_all(char * ptr, char value, unsigned int size);
+#ifndef true
+#define true 1
 
-/**
- * @brief Clears elements in a data array
- *
- * Given a pointer to a char data set, this will set a clear a number
- * of elements given the size provided. Clear means to set to zero. 
- *
- * @param ptr Pointer to data array
- * @param size Number of elements to set to zero
- *
- * @return void.
- */
-void clear_all(char * ptr, unsigned int size);
+/*=================================my_itoa===========================================
+ * Func : my_itoa
+ Reentrant   &   Preemptive
+ * Args
+    * INPUT  : int32_t * data   //the number u need to to convert
+             : uint8_t * ptr    //the output string
+             : uint32_t  base   //the base of the numbering system
+    * Return : uint8_t * length //the length of the converted data
+ * Brief :convert data from a standard integer type into an ASCII string
+*********************************my_itoa*************************************************/
+uint8_t my_itoa(int32_t data, uint8_t * ptr, uint32_t base);
 
-#endif /* __MEMORY_H__ */
+
+
+/* ASCII-to-Integer needs to convert data back from an ASCII represented string into an integer type.
+
+All operations need to be performed using pointer arithmetic, not array indexing
+
+The character string to convert is passed in as a uint8_t * pointer (ptr).
+
+The number of digits in your character set is passed in as a uint8_t integer (digits).
+
+You should be able to support bases 2 to 16.
+
+The converted 32-bit signed integer should be returned.
+
+This function needs to handle signed data.
+
+You may not use any string functions or libraries
+ */
+/*=================================my_atoi===========================================
+ * Func : my_atoi
+ Reentrant   &   Preemptive
+ * Args
+    * INPUT  : uint8_t * ptr        //the input string
+             : uint8_t * digits     //the number of digits in the string
+             : uint32_t  base       //the base of the numbering system
+    * Return : uint8_t * data       //The converted 32-bit signed integer
+ * Brief :Convert data from an ASCII represented string into an integer type
+*********************************my_atoi*************************************************/
+int32_t my_atoi(uint8_t * ptr, uint8_t digits, uint32_t base);
+#endif
