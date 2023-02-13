@@ -10,10 +10,10 @@
 #*****************************************************************************
 
 
-SRCS =	main.c \
-		memory.c 
+SRCS =	src/main.c \
+	src/memory.c 
 
-INCLUDES +=  -I ../include/common/ \
+INCLUDES +=  -I include/common/ \
 
 
 
@@ -27,10 +27,10 @@ endif
 
 ifeq ($(PLATFORM),MSP432)
 
-SRCS +=	interrupts_msp432p401r_gcc.c \
-		startup_msp432p401r_gcc.c \
-		system_msp432p401r.c
+SRCS +=	src/interrupts_msp432p401r_gcc.c \
+		src/startup_msp432p401r_gcc.c \
+		src/system_msp432p401r.c
 
-INCLUDES += -I ../include/CMSIS/  \
-	   			-I ../include/msp432/ 
+INCLUDES += -I include/CMSIS/  \
+	   			-I include/msp432/ 
 endif

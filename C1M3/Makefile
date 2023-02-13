@@ -20,7 +20,7 @@ MARCH = armv7e-m
 MFLOAT=hard	
 FPU=fpv4-sp-d16 	
 # Platform Specific Flags
-LINKER_FILE = ../msp432p401r.lds
+LINKER_FILE = msp432p401r.lds
 
 # Compile Defines
 CC = arm-none-eabi-gcc
