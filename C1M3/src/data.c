@@ -51,8 +51,7 @@ uint8_t my_itoa(int32_t data, uint8_t * ptr, uint32_t base){
       data/=base;
     }
     *(ptr+length)=0;
-    length++; // adding the length of the null terminator
-    if(negative){length++;} // ading the length of the negative sign
+  
     return length; 
 
 }
@@ -63,24 +62,13 @@ int32_t my_atoi(uint8_t * ptr, uint8_t digits, uint32_t base){
     
     // checking for negative sign
     if (*ptr == '-'){
-        digits--;
         negative =true;
         ptr =ptr+1;}
     
-    for (uint8_t i=0;*(ptr+i)!=0;i++){ // looping on the string till reach the null terminator
-    if((*(ptr+i)-'0')>9){ // if the number given is more than the numbering system A,F,C  etc
-         integer+=(*(ptr+i)-'A'+10)*(int)pow(base,(digits-i-1)) ;
- //printf("i:%ld,power value:%-5d,ptr value:%ld,integer value:%ld\n",i,(int)pow(base,(digits-i-1)),((*(ptr+i))-'A'+10),integer);
+    for (uint8_t i=0;*(ptr+i)!=0;i++){
+    if((*(ptr+i)-'0')>9){ integer+=(*(ptr+i)-'A'+10)*(int)pow(base,(digits-i-1)) ;}
+    else{ integer+=(*(ptr+i)-'0')*(int)pow(base,(digits-i-1)) ;  }
     }
-    else{
-           // printf("else INTEGER:%d\n",integer);
-     integer+=(*(ptr+i)-'0')*(int)pow(base,(digits-i-1)) ;  }
-     
-     //printf("i:%ld,power value:%-5d,",i,pow(base,i));
-     //printf("ptr value:%d,",(int)((*(ptr+i))-'0'));
-     //printf("integer value:%ld\n",integer);
-    }
-    //printf("integer after the for loop:%ld\n",integer);
     if(negative){integer=-integer;}
     return integer;
 }
