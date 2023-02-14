@@ -22,19 +22,11 @@ Created on:13 feb 2023             /:/\:\  \     /:/\:\  \     /:/\:\  \
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 *******************************main.c***************************************/
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include "memory.h"
-#include "stats.h"
-#include "data.h"
+#include "course1.h"
+#define VERBOSE
 int main(){
-    
-        printf("calling course1()\n");
-        course1();  
-        return 0;
-  
 
-    return 0;
+  course1();
+
+return 0;
 }

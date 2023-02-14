@@ -13,7 +13,7 @@
 SRCS =	src/main.c \
 	src/memory.c 
 
-INCLUDES +=  -I include/common/ \
+INCLUDES +=  -I include/common/ 
 
 
 
@@ -29,7 +29,12 @@ ifeq ($(PLATFORM),MSP432)
 
 SRCS +=	src/interrupts_msp432p401r_gcc.c \
 		src/startup_msp432p401r_gcc.c \
-		src/system_msp432p401r.c
+		src/system_msp432p401r.c \
+		src/data.c    \
+		src/stats.c   \
+		src/main.c    \
+		src/memory.c  \
+		src/course1.c 
 
 INCLUDES += -I include/CMSIS/  \
 	   			-I include/msp432/ 

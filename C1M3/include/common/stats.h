@@ -18,8 +18,8 @@ Created on:26 jan 2023             /:/\:\  \     /:/\:\  \     /:/\:\  \
 /************************************************************************************************
  * INCLUDES
  ***********************************************************************************************/
-#include <stdio.h>
 
+#include <stdint.h>
 /*************************************************************************************************
  *  GLOBAL CONSTANT MACROS
  ************************************************************************************************/
@@ -29,11 +29,6 @@ Created on:26 jan 2023             /:/\:\  \     /:/\:\  \     /:/\:\  \
  *  GLOBAL DATA PROTOTYPES
  ************************************************************************************************/
 
-int arr[ARR_SIZE] = {   34, 201, 190, 154,   8, 194,   2,   6,
-                       114, 88,   45,  76, 123,  87,  25,  23,
-                       200, 122, 150, 90,   92,  87, 177, 244,
-                       201,   6,  12,  60,   8,   2,   5,  67,
-                         7,  87, 250, 230,  99,   3, 100,  90};
 
 /**************************************************************************************************
  *  GLOBAL FUNCTION PROTOTYPES
@@ -45,86 +40,86 @@ int arr[ARR_SIZE] = {   34, 201, 190, 154,   8, 194,   2,   6,
 
 
 /*=================================print_statistics===========================================
- * Func : print_statistics(int * array,int size)
+ * Func : print_statistics(uint8_t * array,uint8_t size)
  Reentrant   &   Preemptive
  * Args
-    * INPUT  : int * array : array of int
-             : int   size  : the size of the array 
+    * INPUT  : uint8_t * array : array of int
+             : uint8_t   size  : the size of the array 
     * Return : None
  * Brief :A function prints the statistics of the given  minimum & maximum & mean & median
 *********************************print_statistics*************************************************/
-void print_statistics(int * array,int size);
+void print_statistics(uint8_t * array,uint8_t size);
 
 /*====================================print_array()===============================================
- * Func : print_array(int * array,int size)
+ * Func : print_array(uint8_t * array,uint8_t size)
  Reentrant   &   Preemptive
  * Args
-    * INPUT  : int * array : array of int
-             : int   size  : the size of the array 
+    * INPUT  : uint8_t * array : array of int
+             : uint8_t   size  : the size of the array 
     * Return : None
  * Brief :prints the given array to the screen
 *************************************print_array()**********************************************/
-void print_array(int * array,int size);
+void print_array(uint8_t * array,uint8_t size);
 
 
 /*=================================== find_median() ==============================================
- * Func : find_median(int * array,int size)
+ * Func : find_median(uint8_t * array,uint8_t size)
  Reentrant   &   Preemptive
  * Args
-    * INPUT  : int * array : array of int
-             : int   size  : the size of the array 
-    * Return : int : the median of the array
+    * INPUT  : uint8_t * array : array of int
+             : uint8_t   size  : the size of the array 
+    * Return : uint8_t : the median of the array
  * Brief :Given an array of data and a length, returns the median value
 ************************************ find_median() **********************************************/
-int find_median(int * array,int size);
+uint8_t find_median(uint8_t * array,uint8_t size);
 
 
 
 /*=================================== find_mean() ==============================================
- * Func : find_mean(int * array,int size)
+ * Func : find_mean(uint8_t * array,uint8_t size)
  Reentrant   &   Preemptive
  * Args
-    * INPUT  : int * array : array of int
-             : int   size  : the size of the array 
-    * Return : int : the mean (average) of the array
+    * INPUT  : uint8_t * array : array of int
+             : uint8_t   size  : the size of the array 
+    * Return : uint8_t : the mean (average) of the array
  * Brief :Given an array of data and a length, returns the mean
 ************************************ find_mean() **********************************************/
-int find_mean(int * array,int size);
+uint8_t find_mean(uint8_t * array,uint8_t size);
 
 
 /*================================== find_maximum() ==============================================
- * Func : find_maximum(int * array,int size)
+ * Func : find_maximum(uint8_t * array,uint8_t size)
  Reentrant   &   Preemptive
  * Args
-    * INPUT  : int * array : array of int
-             : int   size  : the size of the array 
-    * Return : int : the max of the array
+    * INPUT  : uint8_t * array : array of int
+             : uint8_t   size  : the size of the array 
+    * Return : uint8_t : the max of the array
  * Brief :Given an array of data and a length, returns the maximum
 *********************************** find_maximum() **********************************************/
-int find_maximum(int * array,int size);
+uint8_t find_maximum(uint8_t * array,uint8_t size);
 
 
 /*================================= find_minimum() ==============================================
- * Func : find_minimum(int * array,int size)
+ * Func : find_minimum(uint8_t * array,uint8_t size)
  Reentrant   &   Preemptive
  * Args
-    * INPUT  : int * array : array of int
-             : int   size  : the size of the array 
-    * Return : int : minimum of the array
+    * INPUT  : uint8_t * array : array of int
+             : uint8_t   size  : the size of the array 
+    * Return : uint8_t : minimum of the array
  * Brief :Given an array of data and a length, returns the minimum
 ********************************** find_minimum() **********************************************/
-int find_minimum(int * array,int size);
+uint8_t find_minimum(uint8_t * array,uint8_t size);
 
 /*================================= sort_array() ==============================================
- * Func : sort_array(int * array,int size)
+ * Func : sort_array(uint8_t * array,uint8_t size)
  Reentrant   &   Non - Preemptive
  * Args
-    * INPUT  : int * array : array of int
-             : int   size  : the size of the array 
+    * INPUT  : uint8_t * array : array of int
+             : uint8_t   size  : the size of the array 
     * Return : none
  * Brief :Given an array of data and a length, sorts the array from largest to smallest.  (The zeroth Element should be the largest value, and the last element (n-1) should be the smallest value. )
 ********************************** sort_array() **********************************************/
-int sort_array(int * array,int size);
+uint8_t* sort_array(uint8_t * array,uint8_t size);
 
 
 #endif

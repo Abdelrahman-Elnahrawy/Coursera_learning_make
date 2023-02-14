@@ -52,12 +52,19 @@ void clear_all(char * ptr, unsigned int size){
 
 
 uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length){
+    if (dst<src){
       for (uint8_t i;i<length;i++){
-*(dst+(i*sizeof(uint8_t))) =*(src+(i*sizeof(uint8_t))); // asigning the value to its specific adress
+*(dst+(i*sizeof(uint8_t))) =*(src+(i*sizeof(uint8_t))); 
+}
+}
+else{
+       for (int8_t i=length;i>=0;i--){
+*(dst+(i*sizeof(uint8_t))) =*(src+(i*sizeof(uint8_t))); 
+}   
+    
 }
 return dst;
 }
-
 
 uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length){
       for (uint8_t i;i<length;i++){

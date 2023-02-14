@@ -62,12 +62,17 @@ int32_t my_atoi(uint8_t * ptr, uint8_t digits, uint32_t base){
     
     // checking for negative sign
     if (*ptr == '-'){
-        negative =true;
-        ptr =ptr+1;}
+        negative =true; 
+        ptr =ptr+1; // shifting the address to avoide the negative sign 
+        }
     
-    for (uint8_t i=0;*(ptr+i)!=0;i++){
-    if((*(ptr+i)-'0')>9){ integer+=(*(ptr+i)-'A'+10)*(int)pow(base,(digits-i-1)) ;}
-    else{ integer+=(*(ptr+i)-'0')*(int)pow(base,(digits-i-1)) ;  }
+    for (uint8_t i=0;*(ptr+i)!=0;i++){ // summing loob on the integer (from the beginning (the heighest unit))
+    if((*(ptr+i)-'0')>9){ // check if the digit is above the value of 9 and using letters
+         integer+=(*(ptr+i)-'A'+10)*(int)pow(base,(digits-i-1)) ; 
+         } 
+    else{ 
+        integer+=(*(ptr+i)-'0')*(int)pow(base,(digits-i-1)) ;  
+    }
     }
     if(negative){integer=-integer;}
     return integer;

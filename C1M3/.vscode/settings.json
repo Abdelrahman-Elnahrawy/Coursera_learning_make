@@ -6,6 +6,7 @@
         "stats.h": "c",
         "data.h": "c",
         "memory.h": "c",
-        "math.h": "c"
+        "math.h": "c",
+        "stdio.h": "c"
     }
 }

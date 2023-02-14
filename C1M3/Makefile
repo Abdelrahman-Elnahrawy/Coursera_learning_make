@@ -28,7 +28,7 @@ LD = arm-none-eabi-ld
 TARGET = c1m2
 LDFLAGS = -Wl,-Map=$(TARGET).map -T $(LINKER_FILE)
 CFLAGS = -mcpu=$(CPU) -m$(ARCH) --specs=$(SPECS) -mfloat-abi=$(MFLOAT) -march=$(MARCH) -mfpu=$(FPU) -Werror
-CPPFLAGS =     -Wall -Werror -g -O0 -std=c99  
+CPPFLAGS =     -Wall  -g -O0 -std=c99  
 
 PRES = $(SRCS:.c=.i)						#Makeing a variable for PREPROCESSING OUTPUT
 DEPS = $(SRCS:.c=.d)						#Makeing a variable for dependacy files (describe the files that were used to create compiled objects (. O files) by a C compiler)
