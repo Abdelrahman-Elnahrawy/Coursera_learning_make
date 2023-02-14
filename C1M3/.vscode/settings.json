@@ -2,6 +2,10 @@
     "C_Cpp.errorSquiggles": "disabled",
     "files.associations": {
         "stdlib.h": "c",
-        "limits": "cpp"
+        "limits": "cpp",
+        "stats.h": "c",
+        "data.h": "c",
+        "memory.h": "c",
+        "math.h": "c"
     }
 }

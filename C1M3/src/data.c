@@ -57,102 +57,30 @@ uint8_t my_itoa(int32_t data, uint8_t * ptr, uint32_t base){
 
 }
 
-
-/* ASCII-to-Integer needs to convert data back from an ASCII represented string into an integer type.
-
-All operations need to be performed using pointer arithmetic, not array indexing
-
-The character string to convert is passed in as a uint8_t * pointer (ptr).
-
-The number of digits in your character set is passed in as a uint8_t integer (digits).
-
-You should be able to support bases 2 to 16.
-
-The converted 32-bit signed integer should be returned.
-
-This function needs to handle signed data.
-
-You may not use any string functions or libraries
- */
-/*=================================my_atoi===========================================
- * Func : my_atoi
- Reentrant   &   Preemptive
- * Args
-    * INPUT  : uint8_t * ptr        //the input string
-             : uint8_t * digits     //the number of digits in the string
-             : uint32_t  base       //the base of the numbering system
-    * Return : uint8_t * data       //The converted 32-bit signed integer
- * Brief :Convert data from an ASCII represented string into an integer type
-*********************************my_atoi*************************************************/
-int32_t my_atoi(uint8_t * ptr, uint8_t digits, uint32_t base);
-
-
-// Online C compiler to run C program online
-#include <stdio.h>
-#include <stdint.h>
-#include<stdint.h>
-#include<stdlib.h>
-#include<stddef.h>
-#include<math.h>
-#define len  10
-#ifndef false
-#define false 0
-#endif
-#ifndef true
-#define true 1
-#endif
-/* ASCII-to-Integer needs to convert data back from an ASCII represented string into an integer type.
-
-All operations need to be performed using pointer arithmetic, not array indexing
-
-The character string to convert is passed in as a uint8_t * pointer (ptr).
-
-The number of digits in your character set is passed in as a uint8_t integer (digits).
-
-You should be able to support bases 2 to 16.
-
-The converted 32-bit signed integer should be returned.
-
-This function needs to handle signed data.
-
-You may not use any string functions or libraries
- */
-/*=================================my_atoi===========================================
- * Func : my_atoi
- Reentrant   &   Preemptive
- * Args
-    * INPUT  : uint8_t * ptr        //the input string
-             : uint8_t * digits     //the number of digits in the string
-             : uint32_t  base       //the base of the numbering system
-    * Return : uint8_t * data       //The converted 32-bit signed integer
- * Brief :Convert data from an ASCII represented string into an integer type
-*********************************my_atoi*************************************************/
 int32_t my_atoi(uint8_t * ptr, uint8_t digits, uint32_t base){
     int32_t integer=0;
     uint8_t negative = false;
+    
+    // checking for negative sign
     if (*ptr == '-'){
+        digits--;
         negative =true;
-        ptr =ptr+1;
-    }
-    printf("INTEGER:%d\n",integer);
-    for (uint8_t i=0;*(ptr+i)!=0;i++){
-    if((*(ptr+i)-'0')>9){
-         integer=(*(ptr+i)-'A'+10)*(int)pow(base,(digits-i-1)) ;
- printf("i:%ld,power value:%d,ptr value:%ld,integer value:%ld\n",i,(int)pow(base,(digits-i-1)),(*(ptr+i))-'A'+10,integer);
+        ptr =ptr+1;}
+    
+    for (uint8_t i=0;*(ptr+i)!=0;i++){ // looping on the string till reach the null terminator
+    if((*(ptr+i)-'0')>9){ // if the number given is more than the numbering system A,F,C  etc
+         integer+=(*(ptr+i)-'A'+10)*(int)pow(base,(digits-i-1)) ;
+ //printf("i:%ld,power value:%-5d,ptr value:%ld,integer value:%ld\n",i,(int)pow(base,(digits-i-1)),((*(ptr+i))-'A'+10),integer);
     }
     else{
+           // printf("else INTEGER:%d\n",integer);
      integer+=(*(ptr+i)-'0')*(int)pow(base,(digits-i-1)) ;  }
-    // printf("i:%ld,power value:%d,ptr value:%ld,integer value:%ld\n",i,(int)pow(base,i),(*(ptr+i))-'0',integer);
+     
+     //printf("i:%ld,power value:%-5d,",i,pow(base,i));
+     //printf("ptr value:%d,",(int)((*(ptr+i))-'0'));
+     //printf("integer value:%ld\n",integer);
     }
-    
+    //printf("integer after the for loop:%ld\n",integer);
     if(negative){integer=-integer;}
     return integer;
-}
-    
-
-int main() {
-char str[]={'-','F','F','F',0};
-  int32_t x =  my_atoi(str,3,16);
-printf("string:%s___ integer:%d",str,x);
-    return 0;
 }

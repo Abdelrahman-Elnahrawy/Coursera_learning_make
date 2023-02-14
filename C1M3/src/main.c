@@ -22,9 +22,19 @@ Created on:13 feb 2023             /:/\:\  \     /:/\:\  \     /:/\:\  \
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 *******************************main.c***************************************/
-#include "course1.h"
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include "memory.h"
+#include "stats.h"
+#include "data.h"
+int main(){
+    
+        printf("calling course1()\n");
+        course1();  
+        return 0;
+  
 
-#ifdef COURSE1
-  course1();
-#endif
+    return 0;
+}

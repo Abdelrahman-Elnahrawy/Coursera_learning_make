@@ -25,18 +25,19 @@ Created on:13 feb 2023             /:/\:\  \     /:/\:\  \     /:/\:\  \
 
 #ifndef DATA_H 
 #define DATA_H
+
 #include<stdint.h>
 #include<stdlib.h>
 #include<stddef.h>
 #include<math.h>
-
+#include"course1.h"
 #ifndef false
 #define false 0
 #endif
 
 #ifndef true
 #define true 1
-
+#endif
 /*=================================my_itoa===========================================
  * Func : my_itoa
  Reentrant   &   Preemptive
