@@ -26,10 +26,10 @@ Created on:13 feb 2023             /:/\:\  \     /:/\:\  \     /:/\:\  \
 #ifndef DATA_H 
 #define DATA_H
 
+#include<math.h>
 #include<stdint.h>
 #include<stdlib.h>
 #include<stddef.h>
-#include<math.h>
 #include"course1.h"
 #ifndef false
 #define false 0

@@ -10,10 +10,12 @@
 #*****************************************************************************
 
 
-SRCS =	src/main.c \
-	src/memory.c 
-
-INCLUDES +=  -I include/common/ 
+SRCS =	./src/data.c    \
+		./src/stats.c   \
+		./src/main.c    \
+		./src/memory.c  \
+		./src/course1.c 
+INCLUDES +=  -I include/common/ \
 
 
 
@@ -30,12 +32,10 @@ ifeq ($(PLATFORM),MSP432)
 SRCS +=	src/interrupts_msp432p401r_gcc.c \
 		src/startup_msp432p401r_gcc.c \
 		src/system_msp432p401r.c \
-		src/data.c    \
-		src/stats.c   \
-		src/main.c    \
-		src/memory.c  \
-		src/course1.c 
+
 
 INCLUDES += -I include/CMSIS/  \
 	   			-I include/msp432/ 
 endif
+ #gcc -c src/memory.c -Wall -g -O0 -std=c99 -DHOST -I include/common/ -o src/memory.o
+ #gcc                 -Wall -g -O0 -std=c99 -DHOST -I include/common/ -lm -o final_assesment.out

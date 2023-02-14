@@ -22,6 +22,7 @@ Created on:13 feb 2023             /:/\:\  \     /:/\:\  \     /:/\:\  \
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 *******************************main.c***************************************/
+#include<math.h>
 #include "course1.h"
 #define VERBOSE
 int main(){

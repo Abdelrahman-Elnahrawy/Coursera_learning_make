@@ -25,9 +25,9 @@ LINKER_FILE = msp432p401r.lds
 # Compile Defines
 CC = arm-none-eabi-gcc
 LD = arm-none-eabi-ld
-TARGET = c1m2
-LDFLAGS = -Wl,-Map=$(TARGET).map -T $(LINKER_FILE)
-CFLAGS = -mcpu=$(CPU) -m$(ARCH) --specs=$(SPECS) -mfloat-abi=$(MFLOAT) -march=$(MARCH) -mfpu=$(FPU) -Werror
+TARGET = final
+LDFLAGS = -Wl ,-Map=$(TARGET).map -T $(LINKER_FILE) -lm
+CFLAGS = -mcpu=$(CPU) -m$(ARCH) --specs=$(SPECS) -mfloat-abi=$(MFLOAT) -march=$(MARCH) -mfpu=$(FPU) 
 CPPFLAGS =     -Wall  -g -O0 -std=c99  
 
 PRES = $(SRCS:.c=.i)						#Makeing a variable for PREPROCESSING OUTPUT
@@ -45,7 +45,7 @@ CPPFLAGS +=  -DMSP432 $(INCLUDES)
 CC = gcc
 CPPFLAGS +=  -DHOST $(INCLUDES)
 CFLAGS = 
-LDFLAGS = 	
+LDFLAGS = -lm	
 	else
 $(warning platform not supported!)
 $(warning Setting platform as MSP432)
@@ -65,8 +65,9 @@ build : all
 
 .PHONY: all
 all: $(TARGET).out
-$(TARGET).out: $(SRCS)
-	$(CC) $(SRCS) $(CFLAGS) $(LDFLAGS) $(CPPFLAGS) -o $@
+$(TARGET).out: $(OBJS)
+	$(CC) $(OBJS) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) -o $@
+	size $@
 
 .PHONY: clean
 clean:
